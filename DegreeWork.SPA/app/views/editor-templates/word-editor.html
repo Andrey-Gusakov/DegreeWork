@@ -1,0 +1,34 @@
+﻿<div data-bind="compose: { view: 'dictionary-card.html', mode: 'templated' }">
+    <!--<div data-part="toolbar"></div>-->
+    <div data-part="word-data" class='word-data'>
+        <div>
+            <ul class='assosiation' data-bind="foreach: wordImages, click: selectImage">
+                <li><img alt="word image" class="img-circle" data-bind="attr: { src: image }, css: { selected: selected }" /></li>
+            </ul>
+        </div>
+        <div>
+            <!-- ko if: isNew -->
+            <div class="input-group word-input">
+                <input class="form-control" type="text" placeholder="Put a word..." data-bind="value: word" />
+                <div class="input-group-addon hand" data-bind="click: searchWordData">OK</div>
+            </div>
+            <!-- /ko-->
+            <!-- ko ifnot: isNew -->
+            <p class='lead text-uppercase' data-bind="text: word"></p>
+            <!-- /ko-->
+
+        </div>
+        <div class='translations'>
+            <!-- ko if: isComplete -->
+            <div class='editable' data-bind="foreach: translations, click: toggleTranslation"><span data-bind="css: { 'not-added': !isAdded() }, text: translation"></span></div>
+            <!--<input class='form-control custom-translation' type='text' placeholder='Enter your translation...' />-->
+            <!-- /ko -->
+            <!-- ko ifnot: isComplete -->
+            <p class="lead">Translations go here...</p>
+            <!-- /ko -->
+        </div>
+        <div class='add-card hand' data-bind="css: { hidden: !isNew }, click: addWord">
+            <span class='glyphicon glyphicon-circle-arrow-down'></span>
+        </div>
+    </div>
+</div>

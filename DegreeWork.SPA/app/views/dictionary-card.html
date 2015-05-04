@@ -1,0 +1,26 @@
+﻿<div class="dictionary-card">
+    <!--<div data-part="toolbar" class='toolbar clearfix'>
+        <div class='hand pull-left'>
+            <span class='glyphicon glyphicon-cog'></span>
+        </div>
+        <button class='close pull-right' data-bind="click: removeWord"><span>&times;</span></button>
+    </div>-->
+    <div data-part="word-data" class="word-data">
+        <!-- ko with: wordContext -->
+        <div class="assosiation">
+            <img alt="word image" data-bind="attr: { src: imagePath }" class="img-circle">
+        </div>
+        <div>
+            <p class="lead text-uppercase" data-bind="text: word"></p>
+        </div>
+        <div class='translations'>
+            <div>
+                <!-- ko foreach: translations -->
+                <span data-bind="text: $data"></span>
+                <!-- /ko -->
+            </div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+</div>

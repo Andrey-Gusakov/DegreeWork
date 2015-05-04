@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C358ABD-4260-4D7E-8596-B0F0B3074237}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DegreeWork.Common</RootNamespace>
+    <AssemblyName>DegreeWork.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommonAutofacModule.cs" />
+    <Compile Include="ConfigurationKeys.cs" />
+    <Compile Include="Entities\IAuditEntity.cs" />
+    <Compile Include="Entities\Thesaurus.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\ApiInvoker.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\ApiResultFactory.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\ApiBodyBuilder.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\IApiRequestInterceptor.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\InterceptableApiInvoker.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\ApiAuthorizer.cs" />
+    <Compile Include="ExternalApiUtils\ApiResultFactories\StreamConverterApiResultFactory.cs" />
+    <Compile Include="ExternalApiUtils\ApiResultFactories\StringReaderApiResultFactory.cs" />
+    <Compile Include="ExternalApiUtils\Models\ApiLoginModel.cs" />
+    <Compile Include="ExternalApiUtils\Models\ApisInvokationResult.cs" />
+    <Compile Include="ExternalApiUtils\ExternalApiManager.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\IBaseRepository%271.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\IDatabaseContext.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\IDictionaryRecordRepository.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\IUserRepository.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\IWordRepository.cs" />
+    <Compile Include="Entities\DictionaryRecord.cs" />
+    <Compile Include="Entities\Training.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\Word.cs" />
+    <Compile Include="Entities\WordImage.cs" />
+    <Compile Include="Entities\RecordStatistic.cs" />
+    <Compile Include="Entities\Translation.cs" />
+    <Compile Include="Enums\SortOrder.cs" />
+    <Compile Include="Interfaces\ICommitApplicator.cs" />
+    <Compile Include="Interfaces\IDbRequestMetainfo.cs" />
+    <Compile Include="Interfaces\IPagingData.cs" />
+    <Compile Include="Interfaces\ISecurityContextHolder.cs" />
+    <Compile Include="Interfaces\ISortingData.cs" />
+    <Compile Include="Interfaces\IUserContext.cs" />
+    <Compile Include="Interfaces\ISecureEntity.cs" />
+    <Compile Include="Interfaces\Services\IDictionaryService.cs" />
+    <Compile Include="Interfaces\Services\IWordService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\IApiResult.cs" />
+    <Compile Include="ExternalApiUtils\Abstractions\IResourceHolder.cs" />
+    <Compile Include="ResourceManaging\IPathResolver.cs" />
+    <Compile Include="ResourceManaging\IResourceAllocator.cs" />
+    <Compile Include="ResourceManaging\ResourceManager.cs" />
+    <Compile Include="ResourceManaging\StreamDescriptor.cs" />
+    <Compile Include="Utils\Interfaces\IModelMapper.cs" />
+    <Compile Include="Utils\Interfaces\IWrappedEntity%271.cs" />
+    <Compile Include="Utils\MappingRegistration.cs" />
+    <Compile Include="Utils\ModelMapper.cs" />
+    <Compile Include="Utils\WrappedEntity%271.cs" />
+    <Compile Include="ViewModels\DictionaryRecordViewModel.cs" />
+    <Compile Include="ViewModels\SecureViewModel.cs" />
+    <Compile Include="ViewModels\WordViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

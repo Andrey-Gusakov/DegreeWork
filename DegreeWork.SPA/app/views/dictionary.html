@@ -1,0 +1,41 @@
+﻿<div class='cards overlay'>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4"
+             data-bind="editableNode: { model: insertRecordModel, editorOptions: { activationData: { service: dictionaryService } } }">
+        </div>
+    </div>
+
+    <hr class='divider'>
+
+    <div class="row list" data-bind="foreach: records">
+        <div class="col-md-3" data-bind="editableNode: { model: $data, editorOptions: { activationData: { service: $parent.dictionaryService } } }">
+        </div>
+    </div>
+</div>
+
+<!--<div class="dictionary-card">
+    <div class='toolbar clearfix'>
+        <div class='hand pull-left selected'>
+            <span class='glyphicon glyphicon-cog'></span>
+        </div>
+        <button class='close pull-right'><span>&times;</span></button>
+    </div>
+    <div class='word-data'>
+        <div class='assosiation'>
+            <img alt="word image" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle">
+        </div>
+        <div>
+            <ul class='assosiation'>
+                <li><img alt="word image" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"></li>
+                <li><img alt="word image" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"></li>
+                <li><img alt="word image" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" class="img-circle"></li>
+            </ul>
+        </div>
+        <div>
+            <p class='lead'>SOME WORD</p>
+        </div>
+        <div class='translations'>
+            <div><span class='not-added'>Некоторый текст1</span>, <span>Некоторый текст2</span>, <span>Некоторый текст3</span>, <span>Некоторый</span>, <span><input class='form-control custom-translation' type='text' placeholder='enter your...' /></span></div>
+        </div>
+    </div>
+</div>-->

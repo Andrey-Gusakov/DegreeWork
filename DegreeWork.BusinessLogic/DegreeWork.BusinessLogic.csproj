@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF79F08C-B1C1-45BE-B170-D1CD9ADF196D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DegreeWork.BusinessLogic</RootNamespace>
+    <AssemblyName>DegreeWork.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogicAutofacModule.cs" />
+    <Compile Include="ConfigurationKeys.cs" />
+    <Compile Include="ExternalApi\ApiInvokers\ImageProviderApiInvoker.cs" />
+    <Compile Include="ExternalApi\ApiInvokers\MainTokensApiInvoker.cs" />
+    <Compile Include="ExternalApi\ApiResultFactories\ImageApiResultFactory.cs" />
+    <Compile Include="ExternalApi\ApiInvokers\OAuthDataMarketApiInvoker.cs" />
+    <Compile Include="ExternalApi\ApiInvokers\SpeechProviderDataMarketApiInvoker.cs" />
+    <Compile Include="ExternalApi\ApiResultFactories\SpeechApiResultFactory.cs" />
+    <Compile Include="ExternalApi\ApiResultFactories\MainTokensApiResultFactory.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\MainTokens\GoogleJsonParser%271.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\ImageApiResult.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\ImageResourceHolder.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\MainTokens\IParseStrategy%271.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\MainTokens\ThesaurusesParseStrategy.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\MainTokens\TranslationsParseStrategy.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\SpeechApiResult.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\MainTokens\MainTokensApiResult.cs" />
+    <Compile Include="ExternalApi\ResultProcessors\UrisContext.cs" />
+    <Compile Include="ExternalApi\MicrosoftOAuthDataMarketAuthorizer.cs" />
+    <Compile Include="Helpers\DbRequestMetainfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DictionaryService.cs" />
+    <Compile Include="Services\InternalInterfaces\IInternalWordService.cs" />
+    <Compile Include="Services\WordService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DegreeWork.Common\DegreeWork.Common.csproj">
+      <Project>{8c358abd-4260-4d7e-8596-b0f0b3074237}</Project>
+      <Name>DegreeWork.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DegreeWork.DataAccess\DegreeWork.DataAccess.csproj">
+      <Project>{159587fe-5b83-4ba9-bca1-7bbdb9713aa5}</Project>
+      <Name>DegreeWork.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

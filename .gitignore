@@ -1,0 +1,6 @@
+bin
+obj
+packages
+resources/Images
+resources/Pronunciations
+*.suo

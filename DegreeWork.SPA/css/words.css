@@ -1,0 +1,138 @@
+﻿.cards .row > div {
+	text-align: center;
+	border-width: 2px;
+	border-color: #4C1A1A;
+	box-shadow: 0 0 5px #00003D;
+	background-color: #F6F6F1;
+}
+
+.cards .row.list > div {
+	margin: 0 1% 2% 1%;
+}
+
+.cards .list .col-md-3,.cards .col-sm-3, .cards .col-lg-3, .cards .col-xs-3 {
+	width: 23%;
+}
+
+.cards .row > div:hover, .cards .row > div.focused-card {
+	box-shadow: 0 0 25px #000099;
+}
+
+.cards .row > div {
+	padding: 20px 0px;
+}
+
+.cards .dictionary-card > div {
+	width: 100%;
+	padding: 2px 15px;
+	margin: 3px 0;
+}
+
+.cards .row div.word-data {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.cards .row p {
+	margin-bottom: 12px;
+}
+
+.cards .row .word-input {
+	margin-bottom: 18px;
+    margin-top: 5px;
+}
+
+.cards .translations span {
+	background-color: #e7e7e7;
+	padding: 3px;
+	border-radius: 10px;
+    display: inline-block;
+}
+
+.cards .translations .editable span.not-added {
+	text-decoration: line-through;
+}
+
+.cards .translations .editable span.not-added:hover {
+	text-decoration: none;
+}
+
+.cards .translations .editable span:hover {
+	text-decoration: line-through;
+}
+
+.cards .assosiation img{
+	/*width: 120;
+	height: 120;*/
+	width: 110px;
+	height: 110px;
+}
+
+.cards ul.assosiation {
+	white-space: nowrap;
+	overflow-x: scroll;
+	padding: 3px 0px 3px 5px;
+}
+
+.cards div.assosiation {
+	margin-bottom: 10px;
+}
+
+.cards ul.assosiation  li {
+	list-style: none;
+	display: inline;
+}
+
+.cards ul.assosiation img:hover, .cards ul.assosiation img.selected {
+	box-shadow: 0 0 7px #480000;
+	border-width: 1px 0px;
+	border-color: #380000;
+}
+
+.cards ul.assosiation  li img {
+	margin-left: 5px;
+}
+
+.cards .row.list > div {
+	padding: 10px 0px;
+}
+
+.cards.overlay .row > div {
+	opacity: 0.7;
+}
+
+.cards.overlay .row > div.active {
+	box-shadow: 0 0 25px #000099;
+	opacity: 1;
+}
+
+.cards.overlay .row > div.active .dictionary-card > div:hover:not(:first-child) {
+	box-shadow: 0 0 7px #480000;
+	border-width: 1px 0px;
+	border-color: #380000;
+}
+
+.cards div.add-card {
+	position: absolute;
+	width: 93%;
+	bottom: 0;
+	margin-right: auto;
+	margin-left: auto;
+	/*box-shadow: none;
+	border: initial;*/
+}
+
+.cards .add-card.hand:hover {
+	box-shadow: 0 0 3px #480000;
+}
+
+div.hand {
+	padding: 2px;
+	cursor: pointer;
+}
+
+div.hand.selected {
+	border: 1px solid #cccccc;
+	background-color: #dddddd;
+	cursor: pointer;
+}

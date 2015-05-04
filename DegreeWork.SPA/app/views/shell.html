@@ -1,0 +1,30 @@
+﻿<div class="container">
+    <div class="masthead">
+        <div class='clearfix vertical-centered'>
+            <div class='pull-left'>
+                <h3 class="text-muted">English tutor</h3>
+            </div>
+            <div class='pull-right identity'>
+                <div class='form-inline'>
+                    <div class='form-group'>
+                        <input type='email' class='form-control' placeholder='EmailAddress'>
+                    </div>
+                    <div class='form-group'>
+                        <input type='password' class='form-control' placeholder='Password'>
+                    </div>
+                    <button type='submit' class='btn btn-default'>Submit</button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav nav-justified" data-bind="foreach: router.navigationModel">
+                <li data-bind="css: { active: isActive }">
+                    <a data-bind="attr: { href: hash }, text: title"></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class='content' data-bind="router: { transition: 'entrance' }">
+    </div>
+</div>
