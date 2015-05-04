@@ -65,9 +65,25 @@ namespace DegreeWork.DataAccess.Repositories
             innerSet.Remove(entityToRemove);
         }
 
+        public T GetFirst(Expression<Func<T, bool>> filter, params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = GetInternal(filter, null, includes);
+            return query.FirstOrDefault();
+        }
+
         public List<T> Get(Expression<Func<T, bool>> filter, 
             IDbRequestMetainfo metainfo, 
             params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = GetInternal(filter, metainfo, includes);
+
+            List<T> result = query.ToList();
+            return result;
+        }
+
+        private IQueryable<T> GetInternal(Expression<Func<T, bool>> filter, 
+            IDbRequestMetainfo metainfo, 
+            params Expression<Func<T, object>>[] includes) 
         {
             IQueryable<T> query = innerSet.Where(filter);
 
@@ -94,9 +110,7 @@ namespace DegreeWork.DataAccess.Repositories
             }
 
             query = ApplyIncludes(query, includes);
-
-            List<T> result = query.ToList();
-            return result;
+            return query;
         }
 
         public List<T> Get(Expression<Func<T, bool>> filter, params Expression<Func<T, object>>[] includes)

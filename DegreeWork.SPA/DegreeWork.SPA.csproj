@@ -63,7 +63,9 @@
     <Content Include="app\bindings\editableNode.js" />
     <Content Include="app\common\apis.js" />
     <Content Include="app\common\constants.js" />
-    <Content Include="app\helpers\words-container.js" />
+    <Content Include="app\services\trainingService.js" />
+    <Content Include="app\viewmodels\trainings\utils\trainings-activator.js" />
+    <Content Include="app\viewmodels\trainings\utils\words-container.js" />
     <Content Include="app\main.js" />
     <Content Include="app\common\requestContextBuilder.js" />
     <Content Include="app\services\dictionaryService.js" />
@@ -75,7 +77,8 @@
     <Content Include="app\viewmodels\shell.js" />
     <Content Include="app\viewmodels\training-manager.js" />
     <Content Include="app\viewmodels\trainings.js" />
-    <Content Include="app\viewmodels\trainings\word-tranlation.js" />
+    <Content Include="app\viewmodels\trainings\steps-training.js" />
+    <Content Include="app\viewmodels\trainings\word-translation.js" />
     <Content Include="app\viewmodels\welcome.js" />
     <Content Include="app\viewmodels\word-editor.js" />
     <Content Include="app\views\detail.html" />
@@ -87,7 +90,7 @@
     <Content Include="app\views\summary.html" />
     <Content Include="app\views\training-manager.html" />
     <Content Include="app\views\trainings.html" />
-    <Content Include="app\views\trainings\step-training.html" />
+    <Content Include="app\views\trainings\steps-training.html" />
     <Content Include="app\views\trainings\word-translation.html" />
     <Content Include="app\views\welcome.html" />
     <Content Include="css\ie10mobile.css" />
@@ -149,7 +152,10 @@
     <Content Include="lib\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="lib\jquery\jquery-1.9.1.min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="app\helpers\" />
+    <Folder Include="app\utils\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

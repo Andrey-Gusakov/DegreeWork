@@ -10,13 +10,13 @@ namespace DegreeWork.ConsoleStarter
 {
     class Program
     {
-        private const string baseUrl = "http://localhost:12345/";
+        private const string baseUrl = "http://localhost:23456/";
 
         static void Main(string[] args)
         {
             using(WebApp.Start<Startup>(baseUrl))
             {
-                Console.WriteLine("Listening http://localhost:12345/...\nPress [Enter] to exit...");
+                Console.WriteLine("Listening http://localhost:23456/...\nPress [Enter] to exit...");
                 Console.ReadLine();
             }
         }

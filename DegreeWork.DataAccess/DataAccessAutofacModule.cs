@@ -23,6 +23,7 @@ namespace DegreeWork.DataAccess
 
             builder.RegisterType<WordRepository>().As<IWordRepository>().InstancePerRequest();
             builder.RegisterType<DictionaryRecordRepository>().As<IDictionaryRecordRepository>().InstancePerRequest();
+            builder.RegisterType<TrainingRepository>().As<ITrainingRepository>().InstancePerRequest();
             
             builder.RegisterType<CommitApplicator>().As<ICommitApplicator>().InstancePerRequest();
         }

@@ -71,10 +71,11 @@
     <Compile Include="ExternalApi\ResultProcessors\MainTokens\MainTokensApiResult.cs" />
     <Compile Include="ExternalApi\ResultProcessors\UrisContext.cs" />
     <Compile Include="ExternalApi\MicrosoftOAuthDataMarketAuthorizer.cs" />
-    <Compile Include="Helpers\DbRequestMetainfo.cs" />
+    <Compile Include="Helpers\DbRequestMetainfoBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DictionaryService.cs" />
     <Compile Include="Services\InternalInterfaces\IInternalWordService.cs" />
+    <Compile Include="Services\TrainingService.cs" />
     <Compile Include="Services\WordService.cs" />
   </ItemGroup>
   <ItemGroup>

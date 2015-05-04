@@ -1,4 +1,11 @@
-﻿define(function() {
+﻿define(['durandal/events',
+    'plugins/router',
+    'lodash',
+    'knockout',
+    'viewmodels/trainings/utils/words-container',
+    'viewmodels/trainings/utils/trainings-activator',
+    'services/trainingService'],
+function(Events, router, _, ko, WordsContainer, activatorGetter, service) {
     var STATISTIC_VIEW = 'views/summary.html';
 
     var ctor = function() {
@@ -21,12 +28,12 @@
     ctor.prototype._getTrainingComposition = function(trainingName, config) {
         var me = this;
 
-        var Training = require('viewmodels/' + trainingName);
+        var trainingActivator = activatorGetter.getActivator('viewmodels/' + trainingName);
         var words = this._container.getWords();
-        var training = new Training(words);
+        var training = trainingActivator.activate(words);
         training.config = config;
         training.compositionArea = this.trainingsArea;
-        events.includeIn(training);
+        Events.includeIn(training);
 
         training.on('complete', function() {
             me._showStat();
@@ -47,4 +54,6 @@
 
         this.compositionData(STATISTIC_VIEW);
     }
+
+    return ctor;
 });

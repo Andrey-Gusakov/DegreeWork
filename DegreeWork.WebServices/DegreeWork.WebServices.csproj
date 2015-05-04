@@ -103,6 +103,7 @@
     <Compile Include="ConfigurationKeys.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Controllers\WordController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceProcessor.cs" />

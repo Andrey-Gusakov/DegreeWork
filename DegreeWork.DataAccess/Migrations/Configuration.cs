@@ -26,6 +26,12 @@ namespace DegreeWork.DataAccess.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Trainings.Add(new Common.Entities.Training() {
+                WidgetName = "word-tranlation",
+                Title = "Word-Translation",
+                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":10,""checkByField"":""id""}}"
+            });
         }
     }
 }
