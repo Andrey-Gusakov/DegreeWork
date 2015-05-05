@@ -15,20 +15,23 @@ function(Events, router, _, ko, WordsContainer, activatorGetter, service) {
 
     ctor.prototype.activate = function(trainingName) {
         var me = this;
-        this.thisTrainingUrl = router.activeInstruction();
+        me.thisTrainingUrl = router.activeInstruction();
 
-        var trainingModel = service.getTraining(trainingName);
-        var config = JSON.parse(trainingModel.config);
-        this._container = new WordsContainer(trainingModel.id, config.wordsInfo);
-        
-        var trainingComposition = this._getTrainingComposition(trainingName, config);
-        this.compositionData(trainingComposition);
+        var promise = service.getTraining(trainingName).then(function(trainingModel) {
+            var config = JSON.parse(trainingModel.config);
+            me._container = new WordsContainer(trainingModel.id, config.wordsInfo);
+
+            var trainingComposition = me._getTrainingComposition(trainingName, config);
+            me.compositionData(trainingComposition);
+        });
+
+        return promise;
     }
 
     ctor.prototype._getTrainingComposition = function(trainingName, config) {
         var me = this;
 
-        var trainingActivator = activatorGetter.getActivator('viewmodels/' + trainingName);
+        var trainingActivator = activatorGetter.getActivator(trainingName);
         var words = this._container.getWords();
         var training = trainingActivator.activate(words);
         training.config = config;

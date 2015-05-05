@@ -27,8 +27,8 @@ namespace DegreeWork.DataAccess.Migrations
             //    );
             //
 
-            context.Trainings.Add(new Common.Entities.Training() {
-                WidgetName = "word-tranlation",
+            context.Trainings.AddOrUpdate(t => t.WidgetName, new Common.Entities.Training() {
+                WidgetName = "word-translation",
                 Title = "Word-Translation",
                 Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":10,""checkByField"":""id""}}"
             });

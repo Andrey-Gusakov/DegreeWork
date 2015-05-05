@@ -2,7 +2,7 @@
     var attributes = constants.wordAttributes;
 
     function getTrainingWordCtor(checkProperty, wordsContext) {
-        function TrainingWord(word) {
+        return function(word) {
             var me = this;
             _.assign(me, word);
             this.check = function(data) {
@@ -54,4 +54,6 @@
         collection = _.shuffle(collection);
         return collection;
     }
+    
+    return ctor;
 });

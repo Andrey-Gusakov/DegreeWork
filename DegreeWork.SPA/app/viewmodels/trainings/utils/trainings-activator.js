@@ -2,6 +2,7 @@
 
     var ctors = _.transform(Array.prototype.slice.call(arguments, 2), function(result, val) {
         var key = system.getModuleId(val);
+        key = _.last(key.split('/'));
         result[key] = val;
     })
 

@@ -14,7 +14,7 @@ namespace DegreeWork.Common.Interfaces.DatabaseInterfaces
         T Add(T entity);
         T Update(T entity);
         T GetById(object id);
-        T GetFirst(Expression<Func<T, bool>> filter, params Expression<Func<T, object>>[] includes)
+        T GetFirst(Expression<Func<T, bool>> filter, params Expression<Func<T, object>>[] includes);
         void Remove(object id);
         void Remove(T entityToRemove);
         List<T> Get(Expression<Func<T, bool>> filter, IDbRequestMetainfo metainfo, params Expression<Func<T, object>>[] includes);

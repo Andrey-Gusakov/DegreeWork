@@ -21,6 +21,7 @@ namespace DegreeWork.BusinessLogic.Services
 
         public Training GetTraining(string name)
         {
+            return null;
         }
     }
 }

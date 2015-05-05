@@ -3,7 +3,7 @@
         var requestService = new RequestService(this);
 
         this.getTraining = function(name) {
-            var promise = requestService.get(name);
+            var promise = requestService.get({ trainingName: name });
             return promise;
         }
     }

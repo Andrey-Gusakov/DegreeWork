@@ -20,7 +20,8 @@ namespace DegreeWork.WebServices.Controllers
 
         public Training Get(string trainingName)
         {
-            return trainingRepository.GetFirst(t => t.WidgetName == trainingName);
+            Training training = trainingRepository.GetFirst(t => t.WidgetName == trainingName);
+            return training;
         }
     }
 }

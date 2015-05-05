@@ -63,6 +63,7 @@
     <Compile Include="ConfigurationKeys.cs" />
     <Compile Include="Entities\IAuditEntity.cs" />
     <Compile Include="Entities\Thesaurus.cs" />
+    <Compile Include="Enums\WordAttributes.cs" />
     <Compile Include="ExternalApiUtils\Abstractions\ApiInvoker.cs" />
     <Compile Include="ExternalApiUtils\Abstractions\ApiResultFactory.cs" />
     <Compile Include="ExternalApiUtils\Abstractions\ApiBodyBuilder.cs" />
@@ -89,12 +90,14 @@
     <Compile Include="Entities\Translation.cs" />
     <Compile Include="Enums\SortOrder.cs" />
     <Compile Include="Interfaces\ICommitApplicator.cs" />
+    <Compile Include="Interfaces\IRecordAttributeTamper.cs" />
     <Compile Include="Interfaces\IDbRequestMetainfo.cs" />
     <Compile Include="Interfaces\IPagingData.cs" />
     <Compile Include="Interfaces\ISecurityContextHolder.cs" />
     <Compile Include="Interfaces\ISortingData.cs" />
     <Compile Include="Interfaces\IUserContext.cs" />
     <Compile Include="Interfaces\ISecureEntity.cs" />
+    <Compile Include="Interfaces\IRecordAttributeAware.cs" />
     <Compile Include="Interfaces\Services\IDictionaryService.cs" />
     <Compile Include="Interfaces\Services\ITrainingService.cs" />
     <Compile Include="Interfaces\Services\IWordService.cs" />
