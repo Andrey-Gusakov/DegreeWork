@@ -40,11 +40,6 @@ namespace DegreeWork.DataAccess.Repositories
             entity = innerSet.Attach(entity);
             DbEntityEntry<T> entry = context.Entry<T>(entity);
             entry.State = EntityState.Modified;
-            if(entry.State == EntityState.Detached)
-            {
-                
-                //entry.State = EntityState.Modified;
-            }
 
             return entity;
         }

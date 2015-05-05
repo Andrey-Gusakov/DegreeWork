@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using DegreeWork.BusinessLogic.ExternalApi.ApiInvokers;
 using DegreeWork.BusinessLogic.ExternalApi.ApiResultFactories;
+using DegreeWork.BusinessLogic.Helpers;
+using DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting;
 using DegreeWork.BusinessLogic.Services;
 using DegreeWork.BusinessLogic.Services.InternalInterfaces;
 using DegreeWork.Common;
@@ -11,6 +13,7 @@ using DegreeWork.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +33,10 @@ namespace DegreeWork.BusinessLogic
             builder.RegisterType<SpeechApiResultFactory>();
             builder.RegisterType<MainTokensApiResultFactory>();
             builder.RegisterType<ImageApiResultFactory>();
+
+            builder.Register<Func<Expression, IExpressionResolver>>(c => ExpressionResolverCreator.Create);
+
+            builder.RegisterType<TrainingWordComposer>();
 
             builder.RegisterModule<DataAccessAutofacModule>();
             builder.RegisterModule<CommonAutofacModule>();

@@ -76,6 +76,7 @@
     <Compile Include="Repositories\BaseRepository%271.cs" />
     <Compile Include="Repositories\DictionaryRecordRepository.cs" />
     <Compile Include="Repositories\TrainingRepository.cs" />
+    <Compile Include="Repositories\TrainingWordsRepository.cs" />
     <Compile Include="Repositories\WordRepository.cs" />
   </ItemGroup>
   <ItemGroup>

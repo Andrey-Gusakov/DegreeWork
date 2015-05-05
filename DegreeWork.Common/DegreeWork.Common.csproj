@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="CommonAutofacModule.cs" />
     <Compile Include="ConfigurationKeys.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Entities\IAuditEntity.cs" />
     <Compile Include="Entities\Thesaurus.cs" />
     <Compile Include="Enums\WordAttributes.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Interfaces\DatabaseInterfaces\IDatabaseContext.cs" />
     <Compile Include="Interfaces\DatabaseInterfaces\IDictionaryRecordRepository.cs" />
     <Compile Include="Interfaces\DatabaseInterfaces\ITrainingRepository.cs" />
+    <Compile Include="Interfaces\DatabaseInterfaces\ITrainingWordsRepository.cs" />
     <Compile Include="Interfaces\DatabaseInterfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\DatabaseInterfaces\IWordRepository.cs" />
     <Compile Include="Entities\DictionaryRecord.cs" />

@@ -72,6 +72,11 @@
     <Compile Include="ExternalApi\ResultProcessors\UrisContext.cs" />
     <Compile Include="ExternalApi\MicrosoftOAuthDataMarketAuthorizer.cs" />
     <Compile Include="Helpers\DbRequestMetainfoBuilder.cs" />
+    <Compile Include="Helpers\IncludeExpressionRewriting\MemberResolver.cs" />
+    <Compile Include="Helpers\IncludeExpressionRewriting\MethodCallResolver.cs" />
+    <Compile Include="Helpers\IncludeExpressionRewriting\ParameterResolver.cs" />
+    <Compile Include="Helpers\IncludeExpressionRewriting\IExpressionResolver.cs" />
+    <Compile Include="Helpers\IncludeExpressionRewriting\ExpressionResolverCreator.cs" />
     <Compile Include="Helpers\TrainingWordComposer.cs" />
     <Compile Include="Helpers\WordBuilders\ImageAware.cs" />
     <Compile Include="Helpers\WordBuilders\RepresentationAware.cs" />
