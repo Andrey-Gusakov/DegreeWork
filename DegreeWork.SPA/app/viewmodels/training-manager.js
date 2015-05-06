@@ -20,8 +20,8 @@ function(Events, router, _, ko, WordsContainer, trainingsContainer, service) {
         var promise = service.getTraining(trainingName).then(function(trainingModel) {
             var config = JSON.parse(trainingModel.config);
             me._container = new WordsContainer(trainingModel.id, config.wordsInfo);
-
-            return me._getTrainingComposition(trainingModel.widgetName, config).then(function(trainingComposition) {
+            
+            return me._getTrainingComposition(trainingModel, config).then(function(trainingComposition) {
                 me.compositionData.model = trainingComposition;
             });
         });
@@ -29,12 +29,13 @@ function(Events, router, _, ko, WordsContainer, trainingsContainer, service) {
         return promise;
     }
 
-    ctor.prototype._getTrainingComposition = function(trainingName, config) {
+    ctor.prototype._getTrainingComposition = function(trainingModel, config) {
         var me = this;
-
+        var name = trainingModel.widgetName;
         return this._container.getWords().then(function(words) {
-            var Training = trainingsContainer.getConstructor(trainingName);
-            var training = new Training(words, config[trainingName], trainingsContainer);
+            var Training = trainingsContainer.getConstructor(name);
+            config[name].trainingId = trainingModel.id;
+            var training = new Training(words, config[name], trainingsContainer);
             training.compositionArea = me.trainingsArea;
             Events.includeIn(training);
 

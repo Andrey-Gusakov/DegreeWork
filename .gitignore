@@ -1,6 +1,7 @@
-bin
-obj
-packages
-Images
-Pronunciations
+bin/
+obj/
+packages/
+Images/
+Pronunciations/
+resources/
 *.suo

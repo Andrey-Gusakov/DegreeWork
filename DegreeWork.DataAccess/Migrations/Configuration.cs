@@ -35,7 +35,7 @@ namespace DegreeWork.DataAccess.Migrations
                 Name = "word-translation",
                 WidgetName = "steps-training",
                 Title = "Word-Translation",
-                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":10,""checkByField"":""id""},""steps-training"":{""trainingLogic"":""word-translation""}}"
+                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":4,""checkByField"":""id""},""steps-training"":{""trainingLogic"":""word-translation"",""toTake"":8,""toSkip"":4}}"
             });
         }
     }

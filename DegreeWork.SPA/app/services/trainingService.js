@@ -7,8 +7,12 @@
             return promise;
         }
 
-        this.getWords = function(trainingId, attributes, count) {
-            var promise = requestService.post({ trainingId: trainingId, wordAttributes: attributes, count: count }, 'words');
+        this.getWords = function(trainingId, attributes, take, skip) {
+            skip = skip || 0;
+            var promise = requestService.post(
+                { trainingId: trainingId, wordAttributes: attributes, take: take, skip: skip },
+                'words'
+            );
             return promise;
         }
     }

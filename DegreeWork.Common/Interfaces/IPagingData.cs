@@ -8,7 +8,7 @@ namespace DegreeWork.Common.Interfaces
 {
     public interface IPagingData
     {
-        int Page { get; }
-        int PageSize { get; }
+        int Take { get; }
+        int Skip { get; }
     }
 }

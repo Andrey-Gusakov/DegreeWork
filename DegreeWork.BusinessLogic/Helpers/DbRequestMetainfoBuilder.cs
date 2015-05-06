@@ -18,18 +18,18 @@ namespace DegreeWork.BusinessLogic.Helpers
             context = new MetainfoContext();
         }
 
-        public DbRequestMetainfoBuilder AddPaging(int page, int pageSize) 
+        public DbRequestMetainfoBuilder AddPaging(int skip, int take) 
         {
-            context.PageInternal = page;
-            context.PageSizeInternal = pageSize;
+            context.TakeInternal = take;
+            context.SkipInternal = skip;
 
             return this;
         }
 
         public DbRequestMetainfoBuilder AddPaging(IPagingData pagingData)
         {
-            context.PageInternal = pagingData.Page;
-            context.PageSizeInternal = pagingData.PageSize;
+            context.TakeInternal = pagingData.Take;
+            context.SkipInternal = pagingData.Skip;
 
             return this;
         }
@@ -44,7 +44,7 @@ namespace DegreeWork.BusinessLogic.Helpers
 
         public IDbRequestMetainfo GetRequestMetainfo() 
         {
-            DbRequestMetainfo result = new DbRequestMetainfo(context.PageInternal != null ? context : null,
+            DbRequestMetainfo result = new DbRequestMetainfo(context.TakeInternal != null ? context : null,
                 context.SortingExpression != null ? context : null);
 
             context = new MetainfoContext();
@@ -55,16 +55,16 @@ namespace DegreeWork.BusinessLogic.Helpers
 
         private class MetainfoContext : IPagingData, ISortingData 
         {
-            public int? PageInternal;
-            public int? PageSizeInternal;
+            public int? TakeInternal;
+            public int? SkipInternal;
             public SortOrder? SortOrderInternal;
 
-            public int Page {
-                get { return PageInternal.Value; }
+            public int Take {
+                get { return TakeInternal.Value; }
             }
 
-            public int PageSize {
-                get { return PageSizeInternal.Value; } 
+            public int Skip {
+                get { return SkipInternal.Value; } 
             }
 
             public Expression SortingExpression { get; set; }

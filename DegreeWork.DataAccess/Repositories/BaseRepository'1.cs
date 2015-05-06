@@ -100,7 +100,7 @@ namespace DegreeWork.DataAccess.Repositories
                     if(metainfo.SortingData == null)
                         query = query.OrderBy(e => e.Id);
 
-                    query = query.Skip(pagingData.Page * pagingData.PageSize).Take(pagingData.PageSize);
+                    query = query.Skip(pagingData.Skip).Take(pagingData.Take);
                 }
             }
 

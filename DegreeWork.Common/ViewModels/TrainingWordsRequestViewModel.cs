@@ -14,14 +14,7 @@ namespace DegreeWork.Common.ViewModels
         public WordAttributes[] WordAttributes { get; set; }
         public int Count { get; set; }
 
-        public int Page
-        {
-            get { return 0; }
-        }
-
-        public int PageSize
-        {
-            get { return Count; }
-        }
+        public int Take { get; set; }
+        public int Skip { get; set; }
     }
 }
