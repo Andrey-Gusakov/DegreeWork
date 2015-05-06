@@ -81,6 +81,7 @@
     <Compile Include="Helpers\WordBuilders\ImageAware.cs" />
     <Compile Include="Helpers\WordBuilders\RepresentationAware.cs" />
     <Compile Include="Helpers\WordBuilders\SpeechAware.cs" />
+    <Compile Include="Helpers\WordBuilders\ThesaurusAware.cs" />
     <Compile Include="Helpers\WordBuilders\TranslationAware.cs" />
     <Compile Include="Helpers\WordBuilders\TranslationsAware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

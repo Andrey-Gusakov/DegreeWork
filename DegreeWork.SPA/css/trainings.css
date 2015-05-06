@@ -1,0 +1,30 @@
+﻿.training-container {
+    padding: 25px 40px;
+}
+
+.steps-training .image-container {
+    margin-top: 25px;
+}
+
+.steps-training .image-container img {
+	width: 110px;
+	height: 110px;
+}
+
+.steps-training .attribute {
+    text-align: center
+}
+
+.steps-training .attribute-block {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.steps-training .divider {
+	margin: 20px 0px;
+}
+
+.steps-training .buttons-bar button {
+    margin-right: 5px;
+}

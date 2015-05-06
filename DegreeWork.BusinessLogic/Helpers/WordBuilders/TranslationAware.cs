@@ -15,7 +15,7 @@ namespace DegreeWork.BusinessLogic.Helpers.WordBuilders
         public object GetAttribute(DictionaryRecord record)
         {
             int translationIndex = DateTime.Now.Day % record.Translations.Count;
-            return record.Translations.ElementAt(translationIndex);
+            return record.Translations.ElementAt(translationIndex).Representation;
         }
 
         public WordAttributes Attribute

@@ -19,17 +19,17 @@ namespace DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting
             this.innerResolver = resolverBuilder(firstArgExpr);
         }
 
-        public override bool IsReachType(Type type)
+        public bool IsReachType(Type type)
         {
             return innerResolver.IsReachType(type);
         }
 
-        public override Expression UnderlyingExpression
+        public Expression UnderlyingExpression
         {
             get { return innerResolver.UnderlyingExpression; }
         }
 
-        public override Expression UpdateExpression(Expression newGetter)
+        public Expression UpdateExpression(Expression newGetter)
         {
             List<Expression> arguments = expression.Arguments.ToList();
             arguments[0] = innerResolver.UpdateExpression(newGetter);

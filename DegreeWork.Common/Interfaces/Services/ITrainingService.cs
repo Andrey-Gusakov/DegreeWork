@@ -1,5 +1,6 @@
 ﻿using DegreeWork.Common.Entities;
 using DegreeWork.Common.Enums;
+using DegreeWork.Common.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace DegreeWork.Common.Interfaces.Services
 {
     public interface ITrainingService
     {
-        Dictionary<string, object>[] GetWords(int trainingId, IUserContext userContext, IPagingData pagingData, WordAttributes[] attributes);
+        Dictionary<string, object>[] GetWords(TrainingWordsRequestViewModel trainingViewModel, IUserContext userContext);
     }
 }

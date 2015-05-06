@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DegreeWork.BusinessLogic.Helpers.WordBuilders
 {
-    class RepresentationAware : IRecordAttributeAware
+    class RepresentationAware : IRecordAttributeTamper
     {
         public WordAttributes Attribute
         {
@@ -19,7 +19,12 @@ namespace DegreeWork.BusinessLogic.Helpers.WordBuilders
 
         public Expression<Func<DictionaryRecord, object>> IncludeExpression
         {
-            get { return d => d.Word.Representation; }
+            get { return d => d.Word; }
+        }
+
+        public object GetAttribute(DictionaryRecord record)
+        {
+            return record.Word.Representation;
         }
     }
 }

@@ -99,7 +99,6 @@
     <Compile Include="Interfaces\ISortingData.cs" />
     <Compile Include="Interfaces\IUserContext.cs" />
     <Compile Include="Interfaces\ISecureEntity.cs" />
-    <Compile Include="Interfaces\IRecordAttributeAware.cs" />
     <Compile Include="Interfaces\Services\IDictionaryService.cs" />
     <Compile Include="Interfaces\Services\ITrainingService.cs" />
     <Compile Include="Interfaces\Services\IWordService.cs" />
@@ -117,6 +116,7 @@
     <Compile Include="Utils\WrappedEntity%271.cs" />
     <Compile Include="ViewModels\DictionaryRecordViewModel.cs" />
     <Compile Include="ViewModels\SecureViewModel.cs" />
+    <Compile Include="ViewModels\TrainingWordsRequestViewModel.cs" />
     <Compile Include="ViewModels\WordViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

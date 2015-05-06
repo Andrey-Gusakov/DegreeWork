@@ -1,15 +1,27 @@
-﻿<div class="row">
-    <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-12" data-part="representation"></div>
+﻿<div class="row steps-training">
+    <div class="col-md-12">
+        <div class="attribute">
+            <div data-bind="compose: defaultRepresentationTemplate"></div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <img data-bind="attr: { src: imagePath }" />
+        <div class="row image-container">
+            <div class="attribute">
+                <img data-bind="attr: { src: imagePath }" class="img-circle" />
             </div>
         </div>
-    </div>
-    <div class="col-md-6">
-        <div data-part="working-area"></div>
+        <hr class="divider" />
+        <div class="row">
+            <div class="col-md-12">
+                <div data-part="compose: trainingLogic"></div>
+            </div>
+        </div>
+        <hr class="divider" />
+        <div class="row buttons-bar">
+            <!-- ko ifnot: isNextAllowed -->
+            <button class="btn btn-warning pull-right" data-bind="click: skipWord">Skip</button>
+            <!-- /ko-->
+            <!-- ko if: isNextAllowed -->
+            <button class="btn btn-default pull-right" data-bind="click: showNext">Give me next!</button>
+            <!-- /ko-->
+        </div>
     </div>
 </div>

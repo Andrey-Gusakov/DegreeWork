@@ -46,13 +46,14 @@
     ctor.prototype.getWords = function(checkProperty) {
         this._context = [];
         var TrainingWord = getTrainingWordCtor(this._checkByField, this._context);
-        var words = trainingService.getWords(this._trainingId, this._attributes, this._count);
-        var collection = _.map(words, function(word) {
-            return new TrainingWord(word);
-        });
+        return trainingService.getWords(this._trainingId, this._attributes, this._count).then(function(words) {
+            var collection = _.map(words, function(word) {
+                return new TrainingWord(word);
+            });
 
-        collection = _.shuffle(collection);
-        return collection;
+            collection = _.shuffle(collection);
+            return collection;
+        });
     }
     
     return ctor;

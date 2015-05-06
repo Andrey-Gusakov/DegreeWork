@@ -16,17 +16,17 @@ namespace DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting
             this.expression = expression;
         }
 
-        public override bool IsReachType(Type type)
+        public bool IsReachType(Type type)
         {
             return expression.Type == type;
         }
 
-        public override Expression UnderlyingExpression
+        public Expression UnderlyingExpression
         {
             get { throw new NotSupportedException(); }
         }
 
-        public override Expression UpdateExpression(Expression newGetter)
+        public Expression UpdateExpression(Expression newGetter)
         {
             throw new NotSupportedException();
         }

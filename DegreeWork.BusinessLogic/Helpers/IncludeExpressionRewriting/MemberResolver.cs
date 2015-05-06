@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting
 {
@@ -16,17 +15,17 @@ namespace DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting
             this.expression = expression;
         }
 
-        public override bool IsReachType(Type type)
+        public bool IsReachType(Type type)
         {
             return expression.Member.DeclaringType == type;
         }
 
-        public override Expression UnderlyingExpression
+        public Expression UnderlyingExpression
         {
             get { return expression.Expression; }
         }
 
-        public override Expression UpdateExpression(Expression newGetter)
+        public Expression UpdateExpression(Expression newGetter)
         {
             return expression.Update(newGetter);
         }

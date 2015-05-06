@@ -26,6 +26,14 @@ namespace DegreeWork.BusinessLogic.Helpers
             return this;
         }
 
+        public DbRequestMetainfoBuilder AddPaging(IPagingData pagingData)
+        {
+            context.PageInternal = pagingData.Page;
+            context.PageSizeInternal = pagingData.PageSize;
+
+            return this;
+        }
+
         public DbRequestMetainfoBuilder AddSorting<T>(Expression<Func<T, object>> sortingExpression, 
             SortOrder sortOrder = SortOrder.Ascending) where T : class
         {

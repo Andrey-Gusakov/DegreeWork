@@ -6,6 +6,11 @@
             var promise = requestService.get({ trainingName: name });
             return promise;
         }
+
+        this.getWords = function(trainingId, attributes, count) {
+            var promise = requestService.post({ trainingId: trainingId, wordAttributes: attributes, count: count }, 'words');
+            return promise;
+        }
     }
 
     return new TrainingService();

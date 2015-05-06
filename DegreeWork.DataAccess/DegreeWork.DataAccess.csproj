@@ -71,6 +71,10 @@
     <Compile Include="Migrations\201505031842060_LastTrainingTimeToLastAccessTime.Designer.cs">
       <DependentUpon>201505031842060_LastTrainingTimeToLastAccessTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505061416320_Training_ColumnAdded_Name.cs" />
+    <Compile Include="Migrations\201505061416320_Training_ColumnAdded_Name.Designer.cs">
+      <DependentUpon>201505061416320_Training_ColumnAdded_Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BaseRepository%271.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505031842060_LastTrainingTimeToLastAccessTime.resx">
       <DependentUpon>201505031842060_LastTrainingTimeToLastAccessTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505061416320_Training_ColumnAdded_Name.resx">
+      <DependentUpon>201505061416320_Training_ColumnAdded_Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -64,7 +64,7 @@
     <Content Include="app\common\apis.js" />
     <Content Include="app\common\constants.js" />
     <Content Include="app\services\trainingService.js" />
-    <Content Include="app\viewmodels\trainings\utils\trainings-activator.js" />
+    <Content Include="app\viewmodels\trainings\utils\trainings-container.js" />
     <Content Include="app\viewmodels\trainings\utils\words-container.js" />
     <Content Include="app\main.js" />
     <Content Include="app\common\requestContextBuilder.js" />
@@ -96,6 +96,7 @@
     <Content Include="css\ie10mobile.css" />
     <Content Include="css\site.css" />
     <Content Include="css\starterkit.css" />
+    <Content Include="css\trainings.css" />
     <Content Include="index.html" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.css" />
     <Content Include="lib\bootstrap\css\bootstrap-theme.min.css" />

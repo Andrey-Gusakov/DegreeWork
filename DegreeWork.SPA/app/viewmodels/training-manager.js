@@ -3,14 +3,14 @@
     'lodash',
     'knockout',
     'viewmodels/trainings/utils/words-container',
-    'viewmodels/trainings/utils/trainings-activator',
+    'viewmodels/trainings/utils/trainings-container',
     'services/trainingService'],
-function(Events, router, _, ko, WordsContainer, activatorGetter, service) {
+function(Events, router, _, ko, WordsContainer, trainingsContainer, service) {
     var STATISTIC_VIEW = 'views/summary.html';
 
     var ctor = function() {
-        this.compositionData = ko.observable();
         this.trainingsArea = 'trainings';
+        this.compositionData = { };
     };
 
     ctor.prototype.activate = function(trainingName) {
@@ -21,8 +21,9 @@ function(Events, router, _, ko, WordsContainer, activatorGetter, service) {
             var config = JSON.parse(trainingModel.config);
             me._container = new WordsContainer(trainingModel.id, config.wordsInfo);
 
-            var trainingComposition = me._getTrainingComposition(trainingName, config);
-            me.compositionData(trainingComposition);
+            return me._getTrainingComposition(trainingModel.widgetName, config).then(function(trainingComposition) {
+                me.compositionData.model = trainingComposition;
+            });
         });
 
         return promise;
@@ -31,23 +32,23 @@ function(Events, router, _, ko, WordsContainer, activatorGetter, service) {
     ctor.prototype._getTrainingComposition = function(trainingName, config) {
         var me = this;
 
-        var trainingActivator = activatorGetter.getActivator(trainingName);
-        var words = this._container.getWords();
-        var training = trainingActivator.activate(words);
-        training.config = config;
-        training.compositionArea = this.trainingsArea;
-        Events.includeIn(training);
+        return this._container.getWords().then(function(words) {
+            var Training = trainingsContainer.getConstructor(trainingName);
+            var training = new Training(words, config[trainingName], trainingsContainer);
+            training.compositionArea = me.trainingsArea;
+            Events.includeIn(training);
 
-        training.on('complete', function() {
-            me._showStat();
+            training.on('complete', function() {
+                me._showStat();
+            });
+
+            if(_.isObject(config.compositionOptions)) {
+                training = { model: training };
+                _.defaults(training, compositionOptions);
+            }
+
+            return training;
         });
-
-        if(_.isObject(config.compositionOptions)) {
-            training = { model: training };
-            _.defaults(training, compositionOptions);
-        }
-
-        return training;
     }
 
     ctor.prototype._showStat = function() {

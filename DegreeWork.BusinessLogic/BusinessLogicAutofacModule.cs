@@ -3,10 +3,12 @@ using DegreeWork.BusinessLogic.ExternalApi.ApiInvokers;
 using DegreeWork.BusinessLogic.ExternalApi.ApiResultFactories;
 using DegreeWork.BusinessLogic.Helpers;
 using DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting;
+using DegreeWork.BusinessLogic.Helpers.WordBuilders;
 using DegreeWork.BusinessLogic.Services;
 using DegreeWork.BusinessLogic.Services.InternalInterfaces;
 using DegreeWork.Common;
 using DegreeWork.Common.ExternalApiUtils.Abstractions;
+using DegreeWork.Common.Interfaces;
 using DegreeWork.Common.Interfaces.Services;
 using DegreeWork.Common.ResourceProcessing.Abstractions;
 using DegreeWork.DataAccess;
@@ -25,6 +27,7 @@ namespace DegreeWork.BusinessLogic
         {
             builder.RegisterType<WordService>().As<IWordService>().As<IInternalWordService>();
             builder.RegisterType<DictionaryService>().As<IDictionaryService>();
+            builder.RegisterType<TrainingService>().As<ITrainingService>();
 
             builder.RegisterType<MainTokensApiInvoker>().As<ApiInvoker>();
             builder.RegisterType<ImageProviderApiInvoker>().As<ApiInvoker>();
@@ -37,6 +40,13 @@ namespace DegreeWork.BusinessLogic
             builder.Register<Func<Expression, IExpressionResolver>>(c => ExpressionResolverCreator.Create);
 
             builder.RegisterType<TrainingWordComposer>();
+
+            builder.RegisterType<ImageAware>().As<IRecordAttributeTamper>();
+            builder.RegisterType<RepresentationAware>().As<IRecordAttributeTamper>();
+            builder.RegisterType<SpeechAware>().As<IRecordAttributeTamper>();
+            builder.RegisterType<TranslationsAware>().As<IRecordAttributeTamper>();
+            builder.RegisterType<TranslationAware>().As<IRecordAttributeTamper>();
+            builder.RegisterType<ThesaurusAware>().As<IRecordAttributeTamper>();
 
             builder.RegisterModule<DataAccessAutofacModule>();
             builder.RegisterModule<CommonAutofacModule>();

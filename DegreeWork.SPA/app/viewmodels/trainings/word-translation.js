@@ -1,12 +1,20 @@
-﻿define(['lodash', 'viewmodels/trainings/steps-training'], function(_, StepsTraining) {
-    var WordTranslation = function(config) {
-        StepsTraining.call(this, config);
+﻿define(['lodash'], function(_) {
+    var WordTranslation = function() {
+        this.representation = ko.observable('');
+    };
+
+    WordTranslation.prototype.updateScreen = function(newWord) {
+        this.currentWord = newWord;
+        this.representation(nextWord.representation);
+    };
+
+    WordTranslation.prototype.showAnswer = function() {
+
+    };
+
+    WordTranslation.prototype.checkAnswer = function(data, event) {
+
     }
-
-    _.create(StepsTraining, {
-        constructor: WordTranslation
-    });
-
 
     return WordTranslation;
 });

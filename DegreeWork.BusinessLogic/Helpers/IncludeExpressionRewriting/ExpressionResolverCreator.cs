@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DegreeWork.BusinessLogic.Helpers.IncludeExpressionRewriting
 {
-    public class ExpressionResolverCreator
+    class ExpressionResolverCreator
     {
         public static IExpressionResolver Create(Expression expression)
         {
