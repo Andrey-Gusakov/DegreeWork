@@ -45,9 +45,9 @@ namespace DegreeWork.BusinessLogic.Services
                 includes => {
                     int trainingId = trainingViewModel.TrainingId;
                     List<DictionaryRecord> res = GetNewRecords(trainingId, context, builder, includes);
-                    if(res.Count < trainingViewModel.Count)
+                    if(res.Count < trainingViewModel.Take)
                     {
-                        builder.AddPaging(0, trainingViewModel.Count - res.Count);
+                        builder.AddPaging(0, trainingViewModel.Take - res.Count);
                         List<DictionaryRecord> oldRecords = GetRecords(trainingId, context, builder, includes);
                         res.AddRange(oldRecords);
                     }

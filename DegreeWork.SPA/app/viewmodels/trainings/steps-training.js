@@ -1,5 +1,5 @@
 ﻿define(['lodash','knockout', 'common/constants'], function(_, ko, constants) {
-    var defaultTemplate = "<div><p class='lead' data-bind='text: representation'></p></div>";
+    var defaultTemplate = "<div></div>";
 
     var StepsTraining = function(words, config, container) {
         var me = this;
@@ -19,25 +19,19 @@
     };
 
     StepsTraining.prototype._setRepresentation = function() {
+        this.representationTemplate = {};
         if(!_.isFunction(this.trainingLogic.getRepresentation)) {
-            this.representationTemplate = {
-                model: {
-                    representation: this.trainingLogic.representation,
-                    getView: function() {
-                        return defaultTemplate;
-                    }
-                },
-                
-            };
+            this.representationTemplate.representation = this.trainingLogic.representation;
+            this.representationTemplate.hasOwnComposition = false;
         }
         else {
-            this.representationTemplate = this.trainingLogic.getRepresentation();
+            this.representationTemplate.compositionData = this.trainingLogic.getRepresentation();
+            this.representationTemplate.hasOwnComposition = true;
         }
     }
 
     StepsTraining.prototype.activate = function() {
         this.showNext();
-        this.isNextAllowed(true);
     };
 
     StepsTraining.prototype.showNext = function() {

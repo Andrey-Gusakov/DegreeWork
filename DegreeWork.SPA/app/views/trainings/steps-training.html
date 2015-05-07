@@ -1,17 +1,26 @@
 ﻿<div class="row steps-training">
     <div class="col-md-12">
-        <div class="attribute">
-            <div data-bind="compose: representationTemplate"></div>
+        <div class="center-text">
+            <!-- ko with: representationTemplate -->
+
+            <!-- ko ifnot: hasOwnComposition -->
+            <p class="lead" data-bind="text: representation"></p>
+            <!-- /ko -->
+            <!-- ko if: hasOwnComposition -->
+            <div data-bind="compose: compositionData"></div>
+            <!-- /ko -->
+            
+            <!-- /ko -->
         </div>
         <div class="row image-container">
-            <div class="attribute">
+            <div class="center-text">
                 <img data-bind="attr: { src: imagePath }" class="img-circle" />
             </div>
         </div>
         <hr class="divider" />
         <div class="row">
             <div class="col-md-12">
-                <div data-part="compose: trainingLogic"></div>
+                <div data-bind="compose: trainingLogic"></div>
             </div>
         </div>
         <hr class="divider" />

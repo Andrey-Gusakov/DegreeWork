@@ -1,4 +1,5 @@
-﻿<div data-bind="compose: { view: 'views/steps-training.html', area: compositionArea, mode: 'templated' }">
-    <div data-part="representation">La-la-la</div>
-    <div data-part="working-area">La-la-la</div>
+﻿<div class="row">
+    <div class="col-md-7 center-block" data-bind="foreach: answers, click: checkAnswer">
+        <button class="btn btn-default btn-block center-text" data-bind="text: $data"></button>
+    </div>
 </div>

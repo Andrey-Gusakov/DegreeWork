@@ -20,3 +20,13 @@
 .btn {
     border-radius: 0px;
 }
+
+.center-text {
+    text-align: center;
+}
+
+.center-block {
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+}

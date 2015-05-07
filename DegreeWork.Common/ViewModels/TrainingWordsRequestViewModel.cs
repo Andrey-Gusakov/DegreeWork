@@ -12,7 +12,6 @@ namespace DegreeWork.Common.ViewModels
     {
         public int TrainingId { get; set; }
         public WordAttributes[] WordAttributes { get; set; }
-        public int Count { get; set; }
 
         public int Take { get; set; }
         public int Skip { get; set; }
