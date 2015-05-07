@@ -12,5 +12,6 @@ namespace DegreeWork.BusinessLogic.ExternalApi.ResultProcessors.MainTokens
         int TokensToTake { get; }
         int Index { get; }
         string[] GetTokens(List<T> rawTokens);
+        string[] FallbackGet(JArray array);
     }
 }

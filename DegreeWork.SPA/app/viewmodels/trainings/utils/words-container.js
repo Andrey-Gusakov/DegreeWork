@@ -13,6 +13,9 @@
                     me.isAdded = true;
                 }
                 return result;
+            };
+            this.skip = function() {
+                me.check(undefined);
             }
         }
     }
@@ -29,13 +32,13 @@
 
         return {
             commit: function() {
-                var commitData = _.map(me._context, function(obj) {
+                var commitData = _.map(me._context, function(word) {
                     return {
                         id: word.id,
                         isCorrect: word.correctAnswer
                     };
                 });
-                trainingService.updateStatistic(commitData);
+                //trainingService.updateStatistic(commitData);
             },
             getTrainedWords: function() {
                 return me._context;

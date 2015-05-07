@@ -20,29 +20,33 @@ namespace DegreeWork.BusinessLogic.ExternalApi.ResultProcessors.MainTokens
 
         public string[] GetTokens<T>(IParseStrategy<T> strategy) where T : class
         {
+            string[] result = null;
             JArray[] chunks = GetChunks(strategy.Index);
-            if(chunks == null || chunks.Length == 0)
-                return new string[0];
-
-            int left = strategy.TokensToTake;
-            int portion = left / chunks.Length;
-
-            List<T> rawTokens = new List<T>();
-            for(int i = 0; i < chunks.Length - 1; i++)
+            if(chunks != null && chunks.Length > 0)
             {
-                JArray currentArray = chunks[i];
-                int countToTake = currentArray.Count < portion ? currentArray.Count : portion;
-                left = left - countToTake;
-                if(countToTake < portion)
-                {
-                    countToTake = currentArray.Count;
-                    portion = left / (chunks.Length - (i + 1));
-                }
+                int left = strategy.TokensToTake;
+                int portion = left / chunks.Length;
 
-                rawTokens.AddRange(currentArray.Take(countToTake).Select(t => t as T));
+                List<T> rawTokens = new List<T>();
+                for(int i = 0; i < chunks.Length - 1; i++)
+                {
+                    JArray currentArray = chunks[i];
+                    int countToTake = currentArray.Count < portion ? currentArray.Count : portion;
+                    left = left - countToTake;
+                    if(countToTake < portion)
+                    {
+                        countToTake = currentArray.Count;
+                        portion = left / (chunks.Length - (i + 1));
+                    }
+                    rawTokens.AddRange(currentArray.Take(countToTake).Select(t => t as T));
+                }
+                rawTokens.AddRange(chunks[chunks.Length - 1].Take(left).Select(t => t as T));
+                result = strategy.GetTokens(rawTokens);
+                
             }
-            rawTokens.AddRange(chunks[chunks.Length - 1].Take(left).Select(t => t as T));
-            string[] result = strategy.GetTokens(rawTokens);
+            else
+                result = strategy.FallbackGet(jArray) ?? new string[0];
+            
             return result;
         }
 

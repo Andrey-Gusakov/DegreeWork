@@ -1,12 +1,14 @@
-﻿define(['lodash','knockout', 'common/constants'], function(_, ko, constants) {
-    var defaultTemplate = "<div></div>";
+﻿define(['lodash', 'knockout', 'common/constants'], function(_, ko, constants) {
+    var NEXTWORD_TEXT = 'Continue';
+    var FINISH_TEXT = 'Show my answers!';
 
     var StepsTraining = function(words, config, container) {
         var me = this;
         this.words = words;
         this.imagePath = constants.emptyWord.wordImage;
         this.isNextAllowed = ko.observable(false);
-        this.index = -1;
+        this._index = -1;
+        this.continueButtonText = ko.observable(NEXTWORD_TEXT);
 
         var TrainingLogic = container.getConstructor(config.trainingLogic);
         this.trainingLogic = new TrainingLogic({
@@ -35,9 +37,12 @@
     };
 
     StepsTraining.prototype.showNext = function() {
-        if(++this.index < this.words.length) {
-            var newWord = this.words[this.index];
+        if(++this._index < this.words.length) {
+            var newWord = this.words[this._index];
             this.trainingLogic.updateScreen(newWord);
+            if(this._index + 1 == this.words.length) {
+                this.continueButtonText(FINISH_TEXT);
+            }
             this.isNextAllowed(false);
         }
         else {

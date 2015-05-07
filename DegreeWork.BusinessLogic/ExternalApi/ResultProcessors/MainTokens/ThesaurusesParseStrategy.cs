@@ -26,5 +26,11 @@ namespace DegreeWork.BusinessLogic.ExternalApi.ResultProcessors.MainTokens
         {
             return rawTokens.Select(jarr => (string)jarr[0]).ToArray();
         }
+
+
+        public string[] FallbackGet(JArray array)
+        {
+            return null;
+        }
     }
 }

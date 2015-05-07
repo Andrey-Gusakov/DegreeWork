@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DegreeWork.BusinessLogic.ExternalApi.ResultProcessors.MainTokens
@@ -25,6 +27,22 @@ namespace DegreeWork.BusinessLogic.ExternalApi.ResultProcessors.MainTokens
         public string[] GetTokens(List<JToken> rawTokens)
         {
             return rawTokens.Select(t => t.ToString()).ToArray();
+        }
+
+        public string[] FallbackGet(JArray array)
+        {
+            while(array.Count > 0 && array[0] is JArray)
+                array = array[0] as JArray;
+
+            string[] result = null;
+            if(array.Count > 0)
+            {
+                string token = array[0].ToString();
+                if(Regex.IsMatch(token, @"^[\p{IsCyrillic}\s]+$"))
+                    result = new string[] { token };
+            }
+            
+            return result;
         }
     }
 }
