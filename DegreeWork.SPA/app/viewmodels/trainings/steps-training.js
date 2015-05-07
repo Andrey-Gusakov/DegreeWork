@@ -1,4 +1,5 @@
-﻿define(['lodash', 'knockout', 'common/constants'], function(_, ko, constants) {
+﻿define(['lodash', 'knockout', 'common/constants', 'viewmodels/trainings/revealers/manager'],
+function(_, ko, constants, RevealersManager) {
     var NEXTWORD_TEXT = 'Continue';
     var FINISH_TEXT = 'Show my answers!';
 
@@ -10,15 +11,23 @@
         this._index = -1;
         this.continueButtonText = ko.observable(NEXTWORD_TEXT);
 
+        this.revealersManager = new RevealersManager(_.keys(words[0]));
+        this.revealersController = this.revealersManager.controller();
+
+        this._setTrainigLogic(config, container);
+        this._setRepresentation();
+    };
+
+    StepsTraining.prototype._setTrainigLogic = function(config, container) {
+        var me = this;
         var TrainingLogic = container.getConstructor(config.trainingLogic);
         this.trainingLogic = new TrainingLogic({
             allowNext: function() {
+                me.revealersController.reveal(constants.wordAttributes.IMAGE);
                 me.isNextAllowed(true);
             }
-        }, config);
-
-        this._setRepresentation();
-    };
+        }, this.revealersManager.controller(), config);
+    }
 
     StepsTraining.prototype._setRepresentation = function() {
         this.representationTemplate = {};
@@ -39,6 +48,7 @@
     StepsTraining.prototype.showNext = function() {
         if(++this._index < this.words.length) {
             var newWord = this.words[this._index];
+            this.revealersManager.update(newWord);
             this.trainingLogic.updateScreen(newWord);
             if(this._index + 1 == this.words.length) {
                 this.continueButtonText(FINISH_TEXT);

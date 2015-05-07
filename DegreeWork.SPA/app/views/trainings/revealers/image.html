@@ -1,0 +1,8 @@
+﻿<div class="image-container">
+    <!-- ko if: isShown -->
+    <img data-bind="attr: { src: data }" class="img-circle" />
+    <!-- /ko -->
+    <!-- ko ifnot: isShown -->
+    <img data-bind="attr: { src: defaultSrc }" class="img-circle" />
+    <!-- /ko -->
+</div>

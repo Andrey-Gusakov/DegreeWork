@@ -5,9 +5,10 @@
     var SHOWANSWER_CLASS = 'btn-info active';
     var COUNT = 4;
 
-    var WordTranslation = function(nextUnlocker, config) {
+    var WordTranslation = function(nextUnlocker, revealersController, config) {
         this.nextUnlocker = nextUnlocker;
         this.config = config;
+        this.revealersController = revealersController;
         this.representation = ko.observable('');
         this.answers = ko.observableArray();
     };
@@ -45,6 +46,7 @@
 
     WordTranslation.prototype.updateScreen = function(newWord) {
         this.currentWord = newWord;
+        //this.revealersController.reveal(constants.wordAttributes.PRONUNCIATION);
         this.representation(newWord.representation);
         this._updateWorkingArea();
     };
