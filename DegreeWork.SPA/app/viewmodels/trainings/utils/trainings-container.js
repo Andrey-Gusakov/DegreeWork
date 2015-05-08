@@ -1,7 +1,8 @@
 ﻿define(['lodash',
     'durandal/system',
     'viewmodels/trainings/steps-training',
-    'viewmodels/trainings/word-translation'],
+    'viewmodels/trainings/word-translation',
+    'viewmodels/trainings/translation-word'],
 function(_, system) {
 
     var ctors = _.transform(Array.prototype.slice.call(arguments, 2), function(result, val) {

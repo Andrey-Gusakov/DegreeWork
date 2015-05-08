@@ -9,7 +9,6 @@ function(Events, router, _, ko, WordsContainer, trainingsContainer, service) {
     var STATISTIC_VIEW = 'views/summary.html';
 
     var ctor = function() {
-        this.trainingsArea = 'trainings';
         this.compositionData = { };
     };
 
@@ -36,7 +35,6 @@ function(Events, router, _, ko, WordsContainer, trainingsContainer, service) {
             var Training = trainingsContainer.getConstructor(name);
             config[name].trainingId = trainingModel.id;
             var training = new Training(words, config[name], trainingsContainer);
-            training.compositionArea = me.trainingsArea;
             Events.includeIn(training);
 
             training.on('complete', function() {

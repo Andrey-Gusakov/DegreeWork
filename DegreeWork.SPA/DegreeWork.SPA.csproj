@@ -64,9 +64,12 @@
     <Content Include="app\common\apis.js" />
     <Content Include="app\common\constants.js" />
     <Content Include="app\services\trainingService.js" />
+    <Content Include="app\utils\common-helpers.js" />
+    <Content Include="app\viewmodels\trainings\options-training.js" />
     <Content Include="app\viewmodels\trainings\revealers\image.js" />
     <Content Include="app\viewmodels\trainings\revealers\manager.js" />
     <Content Include="app\viewmodels\trainings\revealers\pronunciation.js" />
+    <Content Include="app\viewmodels\trainings\translation-word.js" />
     <Content Include="app\viewmodels\trainings\utils\trainings-container.js" />
     <Content Include="app\viewmodels\trainings\utils\words-container.js" />
     <Content Include="app\main.js" />
@@ -93,11 +96,11 @@
     <Content Include="app\views\summary.html" />
     <Content Include="app\views\training-manager.html" />
     <Content Include="app\views\trainings.html" />
+    <Content Include="app\views\trainings\options-training.html" />
     <Content Include="app\views\trainings\revealers\image.html" />
     <Content Include="app\views\trainings\revealers\manager.html" />
     <Content Include="app\views\trainings\revealers\pronunciation.html" />
     <Content Include="app\views\trainings\steps-training.html" />
-    <Content Include="app\views\trainings\word-translation.html" />
     <Content Include="app\views\welcome.html" />
     <Content Include="css\ie10mobile.css" />
     <Content Include="css\site.css" />
@@ -161,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\helpers\" />
-    <Folder Include="app\utils\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

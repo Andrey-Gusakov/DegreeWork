@@ -21,12 +21,12 @@ function(_, ko, constants, RevealersManager) {
     StepsTraining.prototype._setTrainigLogic = function(config, container) {
         var me = this;
         var TrainingLogic = container.getConstructor(config.trainingLogic);
-        this.trainingLogic = new TrainingLogic({
+        this.trainingLogic = new TrainingLogic(this.revealersManager.controller(), {
             allowNext: function() {
                 me.revealersController.reveal(constants.wordAttributes.IMAGE);
                 me.isNextAllowed(true);
             }
-        }, this.revealersManager.controller(), config);
+        }, config);
     }
 
     StepsTraining.prototype._setRepresentation = function() {
