@@ -1,6 +1,6 @@
 ﻿define(['lodash', 'durandal/system', 'common/constants',
     'viewmodels/trainings/revealers/image',
-    /*'viewmodels/trainings/revealers/pronunciation'*/],
+    'viewmodels/trainings/revealers/pronunciation'],
 function(_, system, constants) {
 
     var container = _.reduce(Array.prototype.slice.call(arguments, 2), function(result, val) {

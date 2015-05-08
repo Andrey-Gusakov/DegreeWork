@@ -45,7 +45,7 @@ namespace DegreeWork.WebServices
         {
             string result = token;
             if(!token.StartsWith(resourcesPath))
-                result = resourcesPath + token;
+                result = resourcesPath + token.Replace('\\', '/');
 
             return result;
         }

@@ -66,6 +66,7 @@
     <Content Include="app\services\trainingService.js" />
     <Content Include="app\viewmodels\trainings\revealers\image.js" />
     <Content Include="app\viewmodels\trainings\revealers\manager.js" />
+    <Content Include="app\viewmodels\trainings\revealers\pronunciation.js" />
     <Content Include="app\viewmodels\trainings\utils\trainings-container.js" />
     <Content Include="app\viewmodels\trainings\utils\words-container.js" />
     <Content Include="app\main.js" />
@@ -94,6 +95,7 @@
     <Content Include="app\views\trainings.html" />
     <Content Include="app\views\trainings\revealers\image.html" />
     <Content Include="app\views\trainings\revealers\manager.html" />
+    <Content Include="app\views\trainings\revealers\pronunciation.html" />
     <Content Include="app\views\trainings\steps-training.html" />
     <Content Include="app\views\trainings\word-translation.html" />
     <Content Include="app\views\welcome.html" />

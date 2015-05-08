@@ -46,7 +46,7 @@
 
     WordTranslation.prototype.updateScreen = function(newWord) {
         this.currentWord = newWord;
-        //this.revealersController.reveal(constants.wordAttributes.PRONUNCIATION);
+        this.revealersController.reveal(constants.wordAttributes.PRONUNCIATION);
         this.representation(newWord.representation);
         this._updateWorkingArea();
     };
