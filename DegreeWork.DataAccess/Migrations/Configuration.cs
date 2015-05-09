@@ -35,13 +35,13 @@ namespace DegreeWork.DataAccess.Migrations
                 Name = "word-translation",
                 WidgetName = "steps-training",
                 Title = "Word-Translation",
-                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":3,""checkByField"":""translation""},""steps-training"":{""trainingLogic"":""word-translation"",""toTake"":6,""options-training"":{""sampleProperty"":""translation"",""representationProperty"":""representation""}}}"
+                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":6,""checkByField"":""translation""},""steps-training"":{""trainingLogic"":""word-translation"",""toTake"":12,""options-training"":{""sampleProperty"":""translation"",""representationProperty"":""representation""}}}"
             },
             new Common.Entities.Training() {
                 Name = "translation-word",
                 WidgetName = "steps-training",
                 Title = "Translation-Word",
-                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":3,""checkByField"":""representation""},""steps-training"":{""trainingLogic"":""translation-word"",""toTake"":6,""options-training"":{""sampleProperty"":""representation"",""representationProperty"":""translation""}}}"
+                Config = @"{""wordsInfo"":{""attributes"":[0,1,2,3,5],""toTake"":6,""checkByField"":""representation""},""steps-training"":{""trainingLogic"":""translation-word"",""toTake"":12,""options-training"":{""sampleProperty"":""representation"",""representationProperty"":""translation""}}}"
             });
         }
     }
