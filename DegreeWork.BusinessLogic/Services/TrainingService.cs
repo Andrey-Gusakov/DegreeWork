@@ -61,7 +61,8 @@ namespace DegreeWork.BusinessLogic.Services
             DbRequestMetainfoBuilder builder,
             Expression<Func<DictionaryRecord, object>>[] includes)
         {
-            return dictionaryRepository.Get(r => !r.Statistics.Any(s => s.Training.Id == trainigId),
+            return dictionaryRepository.Get(r => !r.Statistics.Any(s => 
+                s.Training.Id == trainigId && s.DictionaryRecord.UserId == context.Id),
                 builder.GetRequestMetainfo(),
                 includes);
         }

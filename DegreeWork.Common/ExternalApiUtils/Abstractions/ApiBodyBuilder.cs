@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DegreeWork.Common.ExternalApiUtils
 {
-    abstract class BodyBuilder: IApiRequestInterceptor
+    abstract class ApiBodyBuilder: IApiRequestInterceptor
     {
         protected string body;
 
-        public BodyBuilder(string body)
+        public ApiBodyBuilder(string body)
         {
             this.body = body;
         }
